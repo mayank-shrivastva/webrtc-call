@@ -6,7 +6,6 @@
   <title>Receiver</title>
 </head>
 
-
 <body style="
   margin:0;
   font-family:Arial, sans-serif;
@@ -27,29 +26,22 @@
   ">
 
     <!-- Header -->
-    <header style="text-align:center; margin-bottom:15px;">
+    <header style="text-align:center; margin-bottom:20px;">
       <h2 style="margin:0;">📞 Receiver</h2>
-      <p style="margin:5px 0; color:#94a3b8;">
-        Waiting for incoming call
-      </p>
+      <p style="margin:5px 0; color:#94a3b8;">Waiting for incoming call</p>
     </header>
 
-    <!-- Incoming Call UI -->
-
-    <div id="incoming" class="hidden">
-  <p>📞 Incoming Call</p>
-  <button onclick="acceptCall()">Accept</button>
-</div>
+    <!-- Incoming Call Screen -->
     <div
       id="incoming"
+      class="hidden"
       style="
+        display:none;
         text-align:center;
         margin-bottom:15px;
-        display:none;
       "
     >
       <p style="font-size:18px;">📞 Incoming Call</p>
-
       <button
         onclick="acceptCall()"
         style="
@@ -76,7 +68,7 @@
       overflow:hidden;
     ">
 
-      <!-- Remote video -->
+      <!-- Remote video (main) -->
       <video
         id="remoteVideo"
         autoplay
@@ -88,7 +80,7 @@
         "
       ></video>
 
-      <!-- Local video -->
+      <!-- Local video (small overlay) -->
       <video
         id="localVideo"
         autoplay
@@ -113,5 +105,14 @@
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="app.js"></script>
+
+  <!-- Small helper to show incoming call -->
+  <script>
+    // Example: when call comes, show incoming UI
+    function showIncoming() {
+      document.getElementById("incoming").style.display = "block";
+    }
+  </script>
+
 </body>
 </html>
