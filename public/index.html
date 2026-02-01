@@ -1,22 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Caller</title>
-  <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-<h2>Caller</h2>
+<body style="
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#0f172a;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+">
 
-<input id="receiverId" placeholder="Receiver ID" />
-<button onclick="callUser()">Call</button>
+  <div style="
+    width:90%;
+    max-width:900px;
+    background:#020617;
+    border-radius:16px;
+    padding:20px;
+  ">
 
-<div class="videos">
-  <video id="localVideo" autoplay muted playsinline></video>
-  <video id="remoteVideo" autoplay playsinline></video>
-</div>
+    <!-- Header -->
+    <header style="text-align:center; margin-bottom:20px;">
+      <h1 style="margin:0;">📞 Video Caller</h1>
+      <p style="margin:5px 0; color:#94a3b8;">Connect instantly with your peer</p>
+    </header>
 
-<script src="/socket.io/socket.io.js"></script>
-<script src="app.js"></script>
+    <!-- Controls -->
+    <div style="
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      margin-bottom:15px;
+    ">
+      <input
+        id="receiverId"
+        placeholder="Enter Receiver ID"
+        style="
+          padding:10px;
+          width:200px;
+          border-radius:8px;
+          border:none;
+          outline:none;
+        "
+      />
+      <button
+        onclick="callUser()"
+        style="
+          padding:10px 20px;
+          border:none;
+          border-radius:8px;
+          background:#22c55e;
+          color:black;
+          font-weight:bold;
+          cursor:pointer;
+        "
+      >
+        Call
+      </button>
+    </div>
+
+    <!-- Videos -->
+    <div style="
+      position:relative;
+      width:100%;
+      height:60vh;
+      background:black;
+      border-radius:12px;
+      overflow:hidden;
+    ">
+
+      <!-- Remote / Main video -->
+      <video
+        id="remoteVideo"
+        autoplay
+        playsinline
+        style="
+          width:100%;
+          height:100%;
+          object-fit:cover;
+        "
+      ></video>
+
+      <!-- Local / Small floating video -->
+      <video
+        id="localVideo"
+        autoplay
+        muted
+        playsinline
+        style="
+          position:absolute;
+          bottom:15px;
+          right:15px;
+          width:150px;
+          height:110px;
+          object-fit:cover;
+          border-radius:10px;
+          border:2px solid white;
+          background:black;
+        "
+      ></video>
+
+    </div>
+
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
