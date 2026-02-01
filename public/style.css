@@ -1,0 +1,19 @@
+body {
+  font-family: Arial;
+  text-align: center;
+}
+
+.videos {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+video {
+  width: 300px;
+  border: 1px solid black;
+}
+
+.hidden {
+  display: none;
+}

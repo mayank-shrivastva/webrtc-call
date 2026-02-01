@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Caller</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Caller</h2>
+
+<input id="receiverId" placeholder="Receiver ID" />
+<button onclick="callUser()">Call</button>
+
+<div class="videos">
+  <video id="localVideo" autoplay muted playsinline></video>
+  <video id="remoteVideo" autoplay playsinline></video>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
